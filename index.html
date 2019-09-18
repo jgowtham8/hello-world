@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+	/*
+	Write an algorithm to identify what notes you need.
+
+Notes/Coins available 5000,1000,500,100,50,20,10,5,2,1
+
+Please give priority to larger notes.
+
+Example :
+
+Inputs salary = 2316
+
+Output = Count of each notes/Coins used. (respective to index notes/Coins) [0,2,0,3,0,0,1,1,0,1]
+*/
+	function findNoteAndCoins(salary) {
+  		var notes = [5000,1000,500,100,50,20,10,5,2,1];
+  		var noteCount = [0,0,0,0,0,0,0,0,0,0];
+  		var amount = salary;
+
+  		for (var i = 0; i < notes.length; i++) {
+  			var divide = amount/notes[i];
+  			if(divide >= 1){
+  				noteCount[i] = parseInt(divide);
+  				amount = amount%notes[i];
+  			}
+  			else{
+  				amount = amount%notes[i];
+  			}
+  		}
+
+  		alert("["+noteCount[0]+","+noteCount[1]+","+noteCount[2]+","+noteCount[3]+","+noteCount[4]+","+noteCount[5]+","+noteCount[6]+","+noteCount[7]+","+noteCount[8]+","+noteCount[9]+"]");
+
+  		//return [];
+	}
+
+	findNoteAndCoins(6688);
+</script>
+</head>
+<body>
+
+</body>
+</html>
